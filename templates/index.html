@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Client Bot App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #121642;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px; /* Increased padding value */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"],input[type="button"] {
+            background-color: #121642;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,input[type="button"]:hover  {
+            background-color: #ffbf00;
+        }
+        
+        .label-description {
+        font-size: smaller;
+        font-style: italic;
+        }
+
+        .logo-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+    </div>
+    <h1>Dice Bot</h1>
+    <form action="/process" method="POST">
+        <label for="uid">Email</label><br>
+        <input type="text" name="uid" id="uid" value="davidsmith2024dev@gmail.com" required><br><br>
+        <label for="pwd">Password</label><br>
+        <input type="password" name="pwd" id="pwd" value="Dev@2024!@" required><br><br>
+        <hr/>
+        <label for="question">Question</label><br>
+        <input type="text" name="question" id="question" value="devops Engineers"><br><br>
+        <label for="question">Location</label><br>
+        <input type="text" name="location" id="location" value=""><br><br>
+        <label for="filter">Filter</label><br>
+        <input type="text" name="filter" id="filter" value="CONTRACTS"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
