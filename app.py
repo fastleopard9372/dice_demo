@@ -210,14 +210,14 @@ def init_UC():
     chrome_options = uc.ChromeOptions()
     dir_path = os.getcwd()
     print(dir_path)
-    chrome_options.add_argument(f"--load-extension={dir_path}/2captcha-solver")
+    chrome_options.add_argument(f"--load-extension=./2captcha-solver")
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--window-size=1920,1080')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--start-maximized')
     chrome_options.add_argument('--disable-setuid-sandbox')
-    driver = uc.Chrome(driver_executable_path='chromedriver',options = chrome_options)
+    driver = uc.Chrome(driver_executable_path='./chromedriver',options = chrome_options)
 
     sleep(5)
     try:
