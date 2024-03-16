@@ -17,7 +17,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from dotenv import load_dotenv
 import asyncio
 
-chromedriver_autoinstaller.install() 
+# chromedriver_autoinstaller.install() 
 
 load_dotenv('config.env')
 
