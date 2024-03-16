@@ -44,7 +44,7 @@ def process():
         p = request.form.get('posted_date')
         q = request.form.get('question')
         
-        bot_run(uid,pwd,q,l,e,p)
+        # bot_run(uid,pwd,q,l,e,p)
         result = "bot running..."
         size ="www.dice.com"
         # json_string = json.dumps(data)
