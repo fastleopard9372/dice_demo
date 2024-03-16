@@ -38,11 +38,11 @@ def process():
     # try:
         uid = request.form.get('uid')
         pwd = request.form.get('pwd')
-        l = request.form.get('location')
         f = request.form.get('filter')
         e = request.form.get('employement_type')
         p = request.form.get('posted_date')
         q = request.form.get('question')
+       # l = request.form.get('location')
         
         # bot_run(uid,pwd,q,l,e,p)
         result = "bot running..."
