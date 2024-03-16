@@ -217,7 +217,7 @@ def init_UC():
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--start-maximized')
     chrome_options.add_argument('--disable-setuid-sandbox')
-    driver = uc.Chrome(options = chrome_options)
+    driver = uc.Chrome(driver_executable_path='chromedriver',options = chrome_options)
 
     sleep(5)
     try:
