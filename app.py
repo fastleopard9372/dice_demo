@@ -35,22 +35,22 @@ def home():
 @app.route('/process', methods=['POST'])
 def process():
     
-    # try:
+    try:
         uid = request.form.get('uid')
         pwd = request.form.get('pwd')
+        l = request.form.get('locate')
         f = request.form.get('filter')
         e = request.form.get('employement_type')
         p = request.form.get('posted_date')
         q = request.form.get('question')
-       # l = request.form.get('location')
         
-        # bot_run(uid,pwd,q,l,e,p)
+        bot_run(uid,pwd,q,l,e,p)
         result = "bot running..."
         size ="www.dice.com"
         # json_string = json.dumps(data)
         return render_template('result.html',result = result,size = size)
-    # except Exception as e:
-    #     return str(e)
+    except Exception as e:
+        return str(e)
 
 
 def solveCaptcha(driver):
