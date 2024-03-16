@@ -40,9 +40,11 @@ def process():
         pwd = request.form.get('pwd')
         l = request.form.get('location')
         f = request.form.get('filter')
+        e = request.form.get('employement_type')
+        p = request.form.get('posted_date')
         q = request.form.get('question')
         
-        bot_run(uid,pwd,q,l,f)
+        bot_run(uid,pwd,q,l,e,p)
         result = "bot running..."
         size ="www.dice.com"
         # json_string = json.dumps(data)
@@ -106,10 +108,11 @@ def move_element_pos(driver,element,offset = 0):
     sleep(.3)
     return top_position
 
-def find_jobs(driver,q,l,f,start,index = 0):
+def find_jobs(driver,q,l,e,p,start,index = 0):
     try:
         while (True):
-            url = f" https://www.dice.com/jobs?q={q}&location={l}&filters.employmentType={f}&radius=30&radiusUnit=mi&page={start}&pageSize=20&language=en"
+            url = f" https://www.dice.com/jobs?q={q}&location={l}&filters.employmentType={e}&filters.postedDate={p}&radius=30&radiusUnit=mi&page={start}&pageSize=20&filters.easyApply=true&language=en"
+            url = url.replace('|', '%7C')
             try:
                 driver.get(url)
                 sleep(randint(50,60)/10.0)
@@ -179,7 +182,7 @@ def find_jobs(driver,q,l,f,start,index = 0):
                             sleep(2)
                     
                 start += 20
-                find_jobs(driver,q,l,f,start,index)
+                find_jobs(driver,q,l,e,p,start,index)
             except Exception as  e:
                 print(e)
                 driver.refresh()
@@ -187,18 +190,19 @@ def find_jobs(driver,q,l,f,start,index = 0):
         pass
     return driver
 
-def bot_run(uid, pwd,q,l,f):
+def bot_run(uid, pwd,q,l,e,p):
     driver= init_UC()
     # uid = 'davidsmith2024dev@gmail.com'
     # pwd = 'Dev@2024!@'
     # q = 'devops Engineers'
     # l = ''
-    # f = "CONTRACTS"
+    # e = "CONTRACTS|THIRD_PARTY"
+    # p = 'SEVEN'
     driver = login(driver,uid,pwd)
     start = 0
     index = 0
     all_count = 0
-    driver = find_jobs(driver,q,l,f,start,index)
+    driver = find_jobs(driver,q,l,e,p,start,index)
 
 def init_UC():
     chrome_options = uc.ChromeOptions()
