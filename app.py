@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request , abort
 import json
 import requests
-
+import chromedriver_autoinstaller
 import undetected_chromedriver as uc
 import re
 from selenium.webdriver.common.alert import Alert
@@ -16,6 +16,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from dotenv import load_dotenv
 import asyncio
+
+chromedriver_autoinstaller.install() 
 
 load_dotenv('config.env')
 
