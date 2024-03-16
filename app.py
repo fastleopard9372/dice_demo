@@ -44,7 +44,7 @@ def process():
         p = request.form.get('posted_date')
         q = request.form.get('question')
         
-        # bot_run(uid,pwd,q,l,e,p)
+        bot_run(uid,pwd,q,l,e,p)
         result = "bot running..."
         size ="www.dice.com"
         # json_string = json.dumps(data)
@@ -215,7 +215,7 @@ def init_UC():
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--start-maximized')
     chrome_options.add_argument('--disable-setuid-sandbox')
-    driver = uc.Chrome(service=Service('chromedriver.exe'),options = chrome_options)
+    driver = uc.Chrome(options = chrome_options)
 
     sleep(5)
     try:
