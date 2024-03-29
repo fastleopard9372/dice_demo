@@ -29,19 +29,13 @@ index = 0
 
 app = Flask(__name__)
 
-
-@app.route('/')
-def home():
-    return render_template('index.html')
-
-@app.route('/process', methods=['POST'])
+@app.route('/', methods=['GET','POST'])
 def process():
-    
+    if request.method == 'POST':    
     # try:
         uid = request.form.get('uid')
         pwd = request.form.get('pwd')
         l = request.form.get('locate')
-        f = request.form.get('filter')
         e = request.form.get('employement_type')
         p = request.form.get('posted_date')
         q = request.form.get('question')
@@ -53,6 +47,8 @@ def process():
         return render_template('result.html',result = result,size = size)
     # except Exception as e:
     #     return str(e)
+    else:
+        return render_template('index.html')
 
 
 def solveCaptcha(driver):
@@ -210,14 +206,14 @@ def init_UC():
     chrome_options = uc.ChromeOptions()
     dir_path = os.getcwd()
     print(dir_path)
-    chrome_options.add_argument(f"--load-extension=./2captcha-solver")
+    chrome_options.add_argument(f"--load-extension={dir_path}/2captcha-solver")
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--window-size=1920,1080')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--start-maximized')
     chrome_options.add_argument('--disable-setuid-sandbox')
-    driver = uc.Chrome(driver_executable_path='./chromedriver',options = chrome_options)
+    driver = uc.Chrome(driver_executable_path='chromedriver',options = chrome_options)
 
     sleep(5)
     try:
